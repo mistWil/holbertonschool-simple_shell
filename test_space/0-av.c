@@ -19,8 +19,9 @@ int main(int ac, char **av)
 
 	while (av[i] != NULL)
 	{
-		printf("%s\n", av[i]);
+		printf("%s ", av[i]);
 		i++;
 	}
+	printf("\n");
 	return (0);
 }
