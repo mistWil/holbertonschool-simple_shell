@@ -43,7 +43,7 @@ int main(void)
 		}
 		else if (childPid == 0)
 		{
-			if (execve(path, args, NULL) == -1)
+			if (execve(path, args, environ) == -1)
 			{
 				perror("Error");
 				free(path);
