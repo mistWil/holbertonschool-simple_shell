@@ -1,0 +1,97 @@
+
+1. **`int main(int ac, char **av)`**
+   ```
+   Fonction main(ac, av):
+       Initialiser les variables d'environnement
+       Boucler jusqu'à la réception de la commande exit :
+           Afficher l'invite de commande
+           Lire l'entrée utilisateur
+           Analyser l'entrée en commande et arguments
+           Exécuter la commande
+       Retourner 0
+   ```
+
+2. **`void display_prompt(void)`**
+   ```
+   Fonction display_prompt():
+       Afficher l'invite de commande
+   ```
+
+3. **`char *read_command(void)`**
+   ```
+   Fonction read_command():
+       Initialiser le tampon
+       Lire une ligne depuis l'entrée standard dans le tampon
+       Retourner le tampon
+   ```
+
+4. **`char **parse_command(char *command)`**
+   ```
+   Fonction parse_command(command):
+       Initialiser la liste d'arguments
+       Tokeniser la chaîne de commande
+       Ajouter chaque jeton à la liste d'arguments
+       Retourner la liste d'arguments
+   ```
+
+5. **`int execute_command(char **args)`**
+   ```
+   Fonction execute_command(args):
+       Si args[0] est NULL, retourner
+       Si args[0] est "exit", quitter le shell
+       Si args[0] est une commande intégrée, l'exécuter
+       Sinon, fork un nouveau processus et exécuter la commande
+       Attendre que le processus enfant se termine
+       Retourner le statut de sortie
+   ```
+
+6. **`void handle_exit(void)`**
+   ```
+   Fonction handle_exit():
+       Quitter le shell
+   ```
+
+7. **`int is_builtin(char *command)`**
+   ```
+   Fonction is_builtin(command):
+       Vérifier si la commande est une commande intégrée
+       Si oui, retourner 1 ; sinon, retourner 0
+   ```
+
+8. **`void execute_builtin(char **args)`**
+   ```
+   Fonction execute_builtin(args):
+       Exécuter la commande intégrée spécifiée par args
+   ```
+
+9. **`int launch_process(char **args)`**
+   ```
+   Fonction launch_process(args):
+       Fork un nouveau processus
+       Dans le processus enfant, exécuter la commande spécifiée par args
+       Dans le processus parent, attendre que l'enfant se termine
+       Retourner le statut de sortie du processus enfant
+   ```
+
+10. **`char *find_command(char *command)`**
+    ```
+    Fonction find_command(command):
+        Si la commande contient '/', retourner la commande
+        Sinon, rechercher la commande dans les répertoires répertoriés dans PATH
+        Retourner le chemin complet de la commande s'il est trouvé, sinon NULL
+    ```
+
+11. **`char *get_env_path(void)`**
+    ```
+    Fonction get_env_path():
+        Obtenir la valeur de la variable d'environnement PATH
+        Retourner la valeur de PATH
+    ```
+
+12. **`void free_memory(char *command, char **args)`**
+    ```
+    Fonction free_memory(command, args):
+        Libérer la mémoire allouée pour la commande et les arguments
+    ```
+
+J'espère que cela correspond mieux à vos attentes. N'hésitez pas à me faire part de toute autre demande d'ajustement.
