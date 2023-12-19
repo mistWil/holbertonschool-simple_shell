@@ -25,8 +25,7 @@ int main(void)
 			if (execve(args[0], args, NULL) == 0)
 				perror("Error");
 		}
-		else
-			wait(&status);
+		wait(&status);
 		i++;
 	}
 	return (0);
