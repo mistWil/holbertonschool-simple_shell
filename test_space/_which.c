@@ -95,7 +95,7 @@ int main(int ac, char *filename[])
 
 	if (location != NULL)
 	{
-		printf("The location of '%s' is: %s\n", filename[1], location);
+		printf("%s\n", location);
 		free(location);
 		return (1);
 	}
