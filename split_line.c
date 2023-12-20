@@ -20,6 +20,11 @@ char **split_line(char *line)
 		return (NULL);
 	}
 	token = strtok(line, " \t\r\n\a");
+	if (token == NULL)
+	{
+		free(tokens);
+		return (NULL);
+	}
 	while (token != NULL)
 	{
 		tokens[position] = token;
@@ -32,6 +37,7 @@ char **split_line(char *line)
 			free(tokens);
 			exit(EXIT_FAILURE);
 		}
+		free(token);
 		token = strtok(NULL, " \t\r\n\a");
 	}
 	tokens[position] = NULL;
