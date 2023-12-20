@@ -10,7 +10,6 @@
 
 int main(void)
 {
-	int status;
 	char *line = NULL;
 	char **lines = NULL;
 
@@ -32,7 +31,7 @@ int main(void)
 		}
 		lines[0] = line;
 		lines[1] = NULL;
-		status = execute_command(lines);
+		execute_command(lines);
 		free(line);
 		free(lines);
 	}
