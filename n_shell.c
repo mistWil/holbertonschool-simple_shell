@@ -11,7 +11,7 @@
 int main(void)
 {
 	char *line = NULL;
-	char **lines = NULL;
+	char **command = NULL;
 
 	while (1)
 	{
@@ -22,18 +22,11 @@ int main(void)
 		fflush(stdout);
 
 		line = read_line();
-
-		lines = malloc(2 * sizeof(char *));
-		if (lines == NULL)
-		{
-			perror("Error");
-			exit(EXIT_FAILURE);
-		}
-		lines[0] = line;
-		lines[1] = NULL;
-		execute_command(lines);
+		command = split_line(line);
+		execute_command(command);
 		free(line);
-		free(lines);
+		/*free command? w/ loop*/
+		free(command);
 	}
 	return (0);
 }
