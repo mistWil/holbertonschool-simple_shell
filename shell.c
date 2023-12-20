@@ -49,7 +49,6 @@ char *read_line(void)
 	bytes_read = getline(&line, &buff_size, stdin);
 	if (bytes_read == EOF)
 	{
-		printf("\n");
 		free(line);
 		exit(0);
 	}
