@@ -23,8 +23,8 @@ int main(void)
 
 		line = read_line();
 		command = split_line(line);
-		if (command == NULL)
-			continue;
+		/*if (command == NULL)
+			continue;*/
 		execute_command(command);
 		free(line);
 		/*free command? w/ loop*/
