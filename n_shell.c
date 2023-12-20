@@ -36,7 +36,7 @@ int main(void)
 		free(line);
 		free(lines);
 	}
-	return (status);
+	return (0);
 }
 
 /**
