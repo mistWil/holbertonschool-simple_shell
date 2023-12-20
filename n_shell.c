@@ -55,7 +55,7 @@ char *read_line(void)
 	if (bytes_read == EOF)
 	{
 		free(line);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	line[bytes_read - 1] = '\0';
 	return (line);
