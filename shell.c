@@ -11,7 +11,7 @@
 int main(void)
 {
 	char *line = NULL;
-	char **command = NULL;
+	char **args = NULL;
 
 	while (1)
 	{
@@ -22,13 +22,16 @@ int main(void)
 		fflush(stdout);
 
 		line = read_line();
-		command = split_line(line);
-		/*if (command == NULL)*/
-		/*	continue;*/
-		execute_command(command);
+		args = split_line(line);
+		if (args[0] == NULL)
+		{
+			free(line);
+			continue;
+		}
+		execute_command(args);
 		free(line);
 		/*free command? w/ loop*/
-		free(command);
+		free(args);
 	}
 	return (0);
 }
@@ -52,7 +55,8 @@ char *read_line(void)
 		free(line);
 		exit(0);
 	}
-	line[bytes_read - 1] = '\0';
+	if (bytes_read > 0 && line[bytes_read - 1] == '\n')
+		line[bytes_read - 1] = '\0';
 	return (line);
 }
 
