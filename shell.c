@@ -26,6 +26,7 @@ int main(void)
 		if (args[0] == NULL)
 		{
 			free(line);
+			free(args);
 			continue;
 		}
 		execute_command(args);
