@@ -12,6 +12,7 @@ int main(void)
 {
 	char *line = NULL;
 	char **args = NULL;
+	int i = 0;
 
 	while (1)
 	{
@@ -38,10 +39,16 @@ int main(void)
 			args[0] = get_path(args[0]);
 			execute_command(args);
 		}
-
+		
 		free(line);
-		/*free command? w/ loop*/
+
+		while (args[i] != NULL)
+		{
+			free(args[i]);
+			i++;
+		}
 		free(args);
 	}
+	free(line);
 	return (0);
 }
