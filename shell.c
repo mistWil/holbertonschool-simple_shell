@@ -7,10 +7,9 @@
  *
  * Return: 0
  */
-
 int main(void)
 {
-	char *line = NULL;
+	char *user_input = NULL, *line = NULL;
 	char **args = NULL;
 	ssize_t bytes_read;
 	size_t buff_size = 0;
@@ -18,25 +17,17 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
-		{
 			printf("$ ");
-		}
 		fflush(stdout);
-
-		bytes_read = getline(&line, &buff_size, stdin);
+		bytes_read = getline(&user_input, &buff_size, stdin);
 		if (bytes_read == EOF)
-		{
-			free(line);
-			exit(0);
-		}
+			free(user_input), exit(0);
+		line = user_input;
 		if (bytes_read > 0 && line[bytes_read - 1] == '\n')
 		{
 			line[bytes_read - 1] = '\0';
 			continue;
 		}
-
-		/*line = read_line();*/
-
 		args = split_line(line);
 		if (args[0] == NULL)
 		{
@@ -45,15 +36,12 @@ int main(void)
 			continue;
 		}
 		if (strchr(args[0], '/') != NULL)
-		{
 			execute_command(args);
-		}
 		else
 		{
 			args[0] = get_path(args[0]);
 			execute_command(args);
 		}
-
 		free(line);
 		free_args(args);
 	}
