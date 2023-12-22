@@ -96,20 +96,40 @@ julien@ubuntu:~/shell$
 
 execve will be the core part of your Shell, don’t forget to pass the environ to it…
 
+`
+julien@ubuntu:~/shell$ ./shell
+#cisfun$ ls
+./shell: No such file or directory
+#cisfun$ /bin/ls
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
+#cisfun$ ^[[D^[[D^[[D
+./shell: No such file or directory
+#cisfun$ ^[[C^[[C^[[C^[[C
+./shell: No such file or directory
+#cisfun$ exit
+./shell: No such file or directory
+#cisfun$ ^C
+julien@ubuntu:~/shell$ echo "/bin/ls" | ./shell
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
+julien@ubuntu:~/shell$
+`
+
 ### Task 3. Simple shell 0.2
 
 Simple shell 0.1 +
-
-    - Handle command lines with arguments
+	
+	Handle command lines with arguments
 
 ### Task 4. Simple shell 0.3
 
 Simple shell 0.2 +
 
-    Handle the `PATH`
-    fork must not be called if the command doesn’t exist
+	Handle the `PATH`
+	`fork` must not be called if the command doesn’t exist
 
-```
+`
 julien@ubuntu:~/shell$ ./shell_0.3
 :) /bin/ls
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
@@ -126,7 +146,7 @@ drwx------ 3 root   root   4096 Dec  5 12:07 systemd-private-062a0eca7f2a4434973
 -rw-rw-r-- 1 julien julien    0 Dec  5 12:09 unity_support_test.0
 :) ^C
 julien@ubuntu:~/shell$
-```
+`
 
 ### Task 5. Simple shell 0.4
 
@@ -142,7 +162,7 @@ Simple shell 0.4 +
 
     Implement the `env` built-in, that prints the current environment
 
-```
+`
 julien@ubuntu:~/shell$ ./simple_shell
 $ env
 USER=julien
@@ -159,31 +179,32 @@ PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/us
 DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$
-```
+`
 
 ## Man page
 
 ## Installation
+
 ### Install and run:
 
 To install and run Simple Shell, follow these steps:
 
 Clone the repository using the following command:
-```
+`
 git clone https://github.com/mistWil/holbertonschool-simple_shell.git
-```
+`
 
 Navigate to the directory where the repository was cloned.
 
 Compile the program by running the following command:
-```
+`
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o .hsh
-```
+`
 
 Run the program by typing the following command:
-```
-./shell
-```
+`
+./hsh
+`
 
 ### Using the Simple Shell:
 
@@ -200,6 +221,8 @@ Here are some examples of commands that you can run:
 - `exit`: exit the shell.
 
 ## Thanks
+
+Many warm thanks to all the Holberton School peers who helped and brought joy throughout the many challenges of this project.
 
 ## Authors
 
