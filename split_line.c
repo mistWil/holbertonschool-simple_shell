@@ -36,7 +36,7 @@ void split_line(char *line)
 		free(tokens[0]);
 		return;
 	}
-	fprintf(stderr, "./hssh: 1: %s: not found\n", token);
+	fprintf(stderr, "./hsh: 1: %s: not found\n", token);
 	free(token);
 	exit(127);
 }
