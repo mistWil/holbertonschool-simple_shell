@@ -29,7 +29,16 @@ int main(void)
 			free(args);
 			continue;
 		}
-		execute_command(args);
+		if (strchr(args[0], '/') != NULL)
+		{
+			execute_command(args);
+		}
+		else
+		{
+			args[0] = get_path(args[0]);
+			execute_command(args);
+		}
+
 		free(line);
 		/*free command? w/ loop*/
 		free(args);

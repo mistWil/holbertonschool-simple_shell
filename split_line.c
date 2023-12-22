@@ -32,12 +32,12 @@ char **split_line(char *line)
 			}
 			position++;
 		}
-		if (position >= MAX_INPUT_SIZE)
+		/*if (position >= MAX_INPUT_SIZE)
 		{
 			fprintf(stderr, "command too long\n");
 			free_tokens(tokens, position);
 			exit(EXIT_FAILURE);
-		}
+		}*/
 		token = strtok(NULL, " \t\r\n\a");
 	}
 	if (position == 0)

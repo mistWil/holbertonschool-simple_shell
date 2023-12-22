@@ -18,5 +18,8 @@ int main(void);
 char *read_line(void);
 int execute_command(char **args);
 char **split_line(char *line);
+void free_tokens(char **tokens, int position);
+char *get_path(char *command);
+char *_getenv(const char *name);
 
 #endif
