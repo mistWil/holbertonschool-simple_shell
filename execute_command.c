@@ -27,16 +27,13 @@ int execute_command(char **args)
 		{
 			if (execve(args[0], args, environ) == -1)
 			{
-				/*to modify*/
 				fprintf(stderr, "./shell: 1: %s: not found\n", args[0]);
 				exit(EXIT_FAILURE);
 			}
 		}
 		wait(&status);
-		/* free(args);*/
 		return (status);
 	}
 	fprintf(stderr, "./shell: No such file or directory\n");
-	/* free(args);*/
 	return (status);
 }
