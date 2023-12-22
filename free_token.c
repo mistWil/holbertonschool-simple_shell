@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * free_token - loops to free tokens
+ * free_tokens - loops to free tokens
  * @tokens: array of string
  * @position: the position in the array
  *
