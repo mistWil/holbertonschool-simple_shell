@@ -20,5 +20,6 @@ char **split_line(char *line);
 void free_args(char **args);
 char *get_path(char *command);
 char *_getenv(const char *name);
+char *read_line(void);
 
 #endif

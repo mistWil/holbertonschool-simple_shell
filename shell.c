@@ -24,18 +24,7 @@ int main(void)
 		fflush(stdout);
 
 		bytes_read = getline(&line, &buff_size, stdin);
-		if (bytes_read == EOF)
-		{
-			free(line);
-			exit(0);
-		}
-		if (bytes_read > 0 && line[bytes_read - 1] == '\n')
-		{
-			line[bytes_read - 1] = '\0';
-			continue;
-		}
-
-		/*line = read_line();*/
+		line = read_line();
 
 		args = split_line(line);
 		if (args[0] == NULL)
