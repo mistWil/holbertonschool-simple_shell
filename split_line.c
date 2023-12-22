@@ -7,7 +7,6 @@
  *
  * Return: char (tokens)
  */
-
 char **split_line(char *line)
 {
 	int position = 0;
@@ -24,19 +23,28 @@ char **split_line(char *line)
 	{
 		if (strlen(token) > 0)
 		{
-		tokens[position] = token;
-		position++;
+			tokens[position] = strdup(token);
+			if (tokens[position] == NULL)
+			{
+				perror("strdup failed");
+				free_tokens(tokens, position);
+				exit(EXIT_FAILURE);
+			}
+			position++;
 		}
 		if (position >= MAX_INPUT_SIZE)
 		{
-			perror("command too long");
-			free(token);
-			free(tokens);
+			fprintf(stderr, "command too long\n");
+			free_tokens(tokens, position);
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \t\r\n\a");
 	}
-	free(token);
+	if (position == 0)
+	{
+		free(tokens);
+		return (NULL);
+	}
 	tokens[position] = NULL;
 	return (tokens);
 }
