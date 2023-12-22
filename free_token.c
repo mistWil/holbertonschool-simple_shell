@@ -10,7 +10,9 @@
 
 void free_tokens(char **tokens, int position)
 {
-	for (int i = 0; i < position; i++)
+	int i = 0;
+
+	for (i = 0; i < position; i++)
 	{
 		free(tokens[i]);
 	}
