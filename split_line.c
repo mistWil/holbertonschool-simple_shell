@@ -7,36 +7,38 @@
  *
  * Return: char (tokens)
  */
-
 char **split_line(char *line)
 {
 	int position = 0;
 	char **tokens;
 	char *token = NULL;
 
-	tokens = malloc(strlen(line) * sizeof(char *));
+	tokens = malloc(strlen(line) * sizeof(char *) + 1);
 	if (tokens == NULL)
 	{
 		return (NULL);
 	}
-	token = strtok(line, " \t\r\n\a");
+	token = strtok(line, " \t");
 	while (token != NULL)
 	{
 		if (strlen(token) > 0)
 		{
-		tokens[position] = token;
-		position++;
+			tokens[position] = strdup(token);
+			if (tokens[position] == NULL)
+			{
+				perror("strdup failed");
+				free_args(tokens);
+				exit(EXIT_FAILURE);
+			}
+			position++;
 		}
-		if (position >= MAX_INPUT_SIZE)
-		{
-			perror("command too long");
-			free(token);
-			free(tokens);
-			exit(EXIT_FAILURE);
-		}
-		token = strtok(NULL, " \t\r\n\a");
+		token = strtok(NULL, " \t");
 	}
-	free(token);
+	/*if (position == 0)
+	{
+		free(tokens);
+		return (NULL);
+	}*/
 	tokens[position] = NULL;
 	return (tokens);
 }
