@@ -1,20 +1,19 @@
 #include "shell.h"
 
 /**
- * free_tokens - loops to free tokens
- * @tokens: array of string
- * @position: the position in the array
- *
- * Return: void
+ * free_args - free the table of arguments
+ * @args: table of arguments
  */
 
-void free_tokens(char **tokens, int position)
+void free_args(char **args)
 {
 	int i = 0;
 
-	for (i = 0; i < position; i++)
+	if (args == NULL)
+		return;
+	for (i = 0; args[i] != NULL; i++)
 	{
-		free(tokens[i]);
+		free(args[i]);
 	}
-	free(tokens);
+	free(args);
 }

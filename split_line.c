@@ -18,7 +18,7 @@ char **split_line(char *line)
 	{
 		return (NULL);
 	}
-	token = strtok(line, " \t\n");
+	token = strtok(line, " \t");
 	while (token != NULL)
 	{
 		if (strlen(token) > 0)
@@ -27,18 +27,18 @@ char **split_line(char *line)
 			if (tokens[position] == NULL)
 			{
 				perror("strdup failed");
-				free_tokens(tokens, position);
+				free_args(tokens);
 				exit(EXIT_FAILURE);
 			}
 			position++;
 		}
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, " \t");
 	}
-	if (position == 0)
+	/*if (position == 0)
 	{
 		free(tokens);
 		return (NULL);
-	}
+	}*/
 	tokens[position] = NULL;
 	return (tokens);
 }
