@@ -7,38 +7,36 @@
  *
  * Return: char (tokens)
  */
-char **split_line(char *line)
+void split_line(char *line)
 {
 	int position = 0;
-	char **tokens;
+	char *tokens[1024] = {NULL};
 	char *token = NULL;
 
-	tokens = malloc(strlen(line) * sizeof(char *) + 1);
-	if (tokens == NULL)
-	{
-		return (NULL);
-	}
 	token = strtok(line, " \t");
 	while (token != NULL)
 	{
 		if (strlen(token) > 0)
 		{
-			tokens[position] = strdup(token);
-			if (tokens[position] == NULL)
-			{
-				perror("strdup failed");
-				free_args(tokens);
-				exit(EXIT_FAILURE);
-			}
+			tokens[position] = token;
 			position++;
 		}
 		token = strtok(NULL, " \t");
 	}
-	/*if (position == 0)
+	if (tokens[0] == NULL)
 	{
-		free(tokens);
-		return (NULL);
-	}*/
-	tokens[position] = NULL;
-	return (tokens);
+		return;
+	}
+	token = strdup(tokens[0]);
+	tokens[0] = get_path(token);
+	if ((tokens[0]) != NULL)
+	{
+		free(token);
+		execute_command(tokens);
+		free(tokens[0]);
+		return;
+	}
+	fprintf(stderr, "./hssh: 1: %s: not found\n", token);
+	free(token);
+	exit(127);
 }
