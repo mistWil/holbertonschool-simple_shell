@@ -15,6 +15,7 @@
 extern char **environ;
 
 int main(void);
+char *read_line(void);
 int execute_command(char **args);
 char **split_line(char *line);
 void free_args(char **args);
