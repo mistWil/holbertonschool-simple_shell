@@ -96,7 +96,7 @@ julien@ubuntu:~/shell$
 
 execve will be the core part of your Shell, don’t forget to pass the environ to it…
 
-`
+```
 julien@ubuntu:~/shell$ ./shell
 #cisfun$ ls
 ./shell: No such file or directory
@@ -114,7 +114,7 @@ julien@ubuntu:~/shell$ echo "/bin/ls" | ./shell
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
 env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
 julien@ubuntu:~/shell$
-`
+```
 
 ### Task 3. Simple shell 0.2
 
@@ -124,12 +124,12 @@ Simple shell 0.1 +
 
 ### Task 4. Simple shell 0.3
 
-Simple shell 0.2 +
+- Simple shell 0.2 +
 
-	Handle the `PATH`
-	`fork` must not be called if the command doesn’t exist
+	- Handle the `PATH`
+	- `fork` must not be called if the command doesn’t exist
 
-`
+```
 julien@ubuntu:~/shell$ ./shell_0.3
 :) /bin/ls
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
@@ -146,23 +146,23 @@ drwx------ 3 root   root   4096 Dec  5 12:07 systemd-private-062a0eca7f2a4434973
 -rw-rw-r-- 1 julien julien    0 Dec  5 12:09 unity_support_test.0
 :) ^C
 julien@ubuntu:~/shell$
-`
+```
 
 ### Task 5. Simple shell 0.4
 
-Simple shell 0.3 +
+- Simple shell 0.3 +
 
-    Implement the `exit` built-in, that exits the shell
-    Usage: `exit`
-    You don’t have to handle any argument to the built-in `exit`
+    - Implement the `exit` built-in, that exits the shell
+    - Usage: `exit`
+    - You don’t have to handle any argument to the built-in `exit`
 
 ### Task 6. Simple shell 1.0
 
-Simple shell 0.4 +
+- Simple shell 0.4 +
 
-    Implement the `env` built-in, that prints the current environment
+    - Implement the `env` built-in, that prints the current environment
 
-`
+```
 julien@ubuntu:~/shell$ ./simple_shell
 $ env
 USER=julien
@@ -179,7 +179,7 @@ PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/us
 DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$
-`
+```
 
 ## Man page
 
