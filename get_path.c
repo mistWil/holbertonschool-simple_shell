@@ -9,7 +9,6 @@
  */
 char *get_path(char *command)
 {
-	char *path = NULL;
 	char *path_copy = NULL;
 	char *full_path = NULL;
 	char *token = NULL;
@@ -19,11 +18,8 @@ char *get_path(char *command)
 		return (strdup(command));
 	}
 
-	path = _getenv("PATH");
-	path_copy = strdup(path);
+	path_copy = _getenv("PATH");
 	token = strtok(path_copy, ":");
-
-	free(path);
 
 	while (token != NULL)
 	{

@@ -21,8 +21,8 @@ int main(void)
 
 		line = read_line();
 		split_line(line);
+		free(line);
 	}
-	free(line);
 	return (0);
 }
 

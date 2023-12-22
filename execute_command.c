@@ -7,33 +7,32 @@
  *
  * Return: status if success
  */
-
-int execute_command(char **args)
+void execute_command(char *argv[])
 {
-	pid_t child_pid;
 	int status;
+	pid_t child;
 
-	if ((access(args[0], X_OK) == 0))
+	if (access(argv[0], X_OK) != 0)
 	{
-		child_pid = fork();
-
-		if (child_pid == -1)
-		{
-			perror("Error");
-			exit(EXIT_FAILURE);
-		}
-
-		if (child_pid == 0)
-		{
-			if (execve(args[0], args, environ) == -1)
-			{
-				fprintf(stderr, "./shell: 1: %s: not found\n", args[0]);
-				exit(EXIT_FAILURE);
-			}
-		}
-		wait(&status);
-		return (status);
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+		free(argv[0]);
+		exit(127);
 	}
-	fprintf(stderr, "./shell: No such file or directory\n");
-	return (status);
+	child = fork();
+
+	if (child == -1)
+	{
+		perror("Fail Fork\n");
+		exit(0);
+	}
+	else if (child == 0)
+	{
+		execve(argv[0], argv, environ);
+		free(argv[0]);
+		exit(0);
+	}
+	else
+	{
+		wait(&status);
+	}
 }

@@ -29,7 +29,7 @@ void split_line(char *line)
 	}
 	token = strdup(tokens[0]);
 	tokens[0] = get_path(token);
-	if ((tokens[0]) != NULL)
+	if (tokens[0] != NULL)
 	{
 		free(token);
 		execute_command(tokens);
