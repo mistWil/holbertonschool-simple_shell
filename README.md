@@ -118,9 +118,9 @@ julien@ubuntu:~/shell$
 
 ### Task 3. Simple shell 0.2
 
-Simple shell 0.1 +
+- Simple shell 0.1 +
 	
-	Handle command lines with arguments
+	- Handle command lines with arguments
 
 ### Task 4. Simple shell 0.3
 
