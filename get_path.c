@@ -23,7 +23,7 @@ char *get_path(char *command)
 			return (NULL);
 		}
 
-		sprintf(full_path,"%s/%s", token, command);
+		sprintf(full_path, "%s/%s", token, command);
 
 		if (access(full_path, X_OK) == 0)
 		{
