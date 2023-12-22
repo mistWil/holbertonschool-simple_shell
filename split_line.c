@@ -13,12 +13,12 @@ char **split_line(char *line)
 	char **tokens;
 	char *token = NULL;
 
-	tokens = malloc(strlen(line) * sizeof(char *));
+	tokens = malloc(strlen(line) * sizeof(char *) + 1);
 	if (tokens == NULL)
 	{
 		return (NULL);
 	}
-	token = strtok(line, " \t\r\n\a");
+	token = strtok(line, " \t\n");
 	while (token != NULL)
 	{
 		if (strlen(token) > 0)
@@ -32,7 +32,7 @@ char **split_line(char *line)
 			}
 			position++;
 		}
-		token = strtok(NULL, " \t\r\n\a");
+		token = strtok(NULL, " \t\n");
 	}
 	if (position == 0)
 	{
