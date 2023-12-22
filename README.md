@@ -107,7 +107,7 @@ Simple shell 0.1 +
 Simple shell 0.2 +
 
     Handle the `PATH`
-    `fork must not be called if the command doesn’t exist
+    fork must not be called if the command doesn’t exist
 
 ```
 julien@ubuntu:~/shell$ ./shell_0.3
@@ -132,7 +132,7 @@ julien@ubuntu:~/shell$
 
 Simple shell 0.3 +
 
-    - Implement the `exit` built-in, that exits the shell
+    Implement the `exit` built-in, that exits the shell
     Usage: `exit`
     You don’t have to handle any argument to the built-in `exit`
 
