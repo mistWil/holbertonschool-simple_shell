@@ -74,7 +74,7 @@ julien@ubuntu:~/shell$
 
 - Write a UNIX command line interpreter.
 
-    - Usage: simple_shell
+    - Usage: ./hsh
 
 - Your Shell should:
 
@@ -182,6 +182,8 @@ julien@ubuntu:~/shell$
 ```
 
 ## Man page
+
+Run man ./man_1_simple_shell
 
 ## Installation
 
