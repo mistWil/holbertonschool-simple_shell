@@ -27,12 +27,22 @@ void split_line(char *line)
 	{
 		return;
 	}
+	if (strcmp(tokens[0], "exit") == 0 && tokens[1] == NULL)
+	{
+		free(tokens[0]);
+		exit(0);
+	}
+	if (strcmp(tokens[0], "env") == 0)
+	{
+		_printenv();
+		return;
+	}
 	token = strdup(tokens[0]);
 	tokens[0] = get_path(token);
 	if (tokens[0] != NULL)
 	{
 		free(token);
-		execute_command(tokens);
+		execute_command(tokens, line);
 		free(tokens[0]);
 		return;
 	}

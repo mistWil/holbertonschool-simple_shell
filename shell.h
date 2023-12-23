@@ -16,10 +16,10 @@ extern char **environ;
 
 int main(void);
 char *read_line(void);
-void execute_command(char **args);
+void execute_command(char *argv[], char *line);
 void split_line(char *line);
-void free_args(char **args);
 char *get_path(char *command);
 char *_getenv(const char *name);
+int _printenv(void);
 
 #endif

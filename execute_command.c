@@ -3,13 +3,14 @@
 /**
  * execute_command - function which execute command
  * find in system
- * @args: pointer**
+ * @argv: pointer**
+ * @line: raw command line
  *
  * Return: status if success
  */
-void execute_command(char *argv[])
+void execute_command(char *argv[], char *line)
 {
-	int status;
+	int status, exit_status = 0;
 	pid_t child;
 
 	if (access(argv[0], X_OK) != 0)
@@ -34,5 +35,15 @@ void execute_command(char *argv[])
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status))
+		{
+			exit_status = WEXITSTATUS(status);
+			if (exit_status != 0)
+			{
+				free(argv[0]);
+				free(line);
+				exit(2);
+			}
+		}
 	}
 }
