@@ -1,0 +1,169 @@
+.TH SIMPLE_SHELL 1 "December 2023" "Version 1.0" "User Manual"
+
+.SH NAME
+
+\fBhsh\fR \ - A basic UNIX command language interpreter
+
+.SH SYNOPSIS
+
+.B ./hsh
+.br
+.B echo "command" | ./hsh
+
+.SH DESCRIPTION
+
+.B The Simple Shell is a simple UNIX command language interpreter taking commands from the keyboard and giving them to the operating system to perform.
+.br
+.B A command prompts is provided for the user to type in command that the program shall execute.
+.br
+.B It handles basic command-line operations, including simple commands with arguments, error handling, PATH resolution, and the `exit` built-in command.
+
+.SH COMMANDS
+
+The following commands are supported
+
+.TP
+.B exit
+Terminates the shell program.
+
+.TP
+.B env
+Prints the current environment variables.
+
+.TP
+.B ls [OPTION] [FILE]
+Lists files and directories. Options include:
+.RS
+.IP
+.B -a
+List all entries, including hidden files.
+.IP
+.B -l
+Use a long listing format.
+.RE
+
+.TP
+.B pwd
+Prints the current working directory.
+
+.TP
+.B cat [FILE]
+Concatenates and displays the content of one or more files.
+
+.TP
+.B echo [TEXT]
+Displays the specified text.
+
+.TP
+.B vim [FILE]
+Opens the Vim text editor to edit the specified file.
+
+.SH INTERACTIVE AND NON-INTERACTIVE MODES
+
+.B hsh
+can be used in both interactive and non-interactive modes.
+
+.TP
+.B Interactive Mode
+In interactive mode, the shell displays a prompt (\fI$ \fR) and waits for user input. Users can enter commands interactively.
+
+.TP
+.B Non-Interactive Mode
+In non-interactive mode, commands can be passed to
+.B hsh
+using the following syntax:
+.PP
+.B echo "your command" | ./hsh
+
+.SH EXAMPLES
+
+Interactive mode:
+.PP
+.B hsh$ ls -l -a
+.br
+.B total 16
+.br
+.B drwxr-xr-x  2 user user 4096 Dec 23 10:00 .
+.br
+.B drwxr-xr-x 16 user user 4096 Dec 23 09:59 ..
+.br
+.B -rw-r--r--  1 user user   23 Dec 23 10:00 file1.txt
+.br
+.B -rw-r--r--  1 user user   29 Dec 23 10:00 file2.txt
+
+Non-interactive mode:
+.PP
+.B echo "/bin/ls" |./hsh
+.br
+.B total 16
+.br
+.B drwxr-xr-x  2 user user 4096 Dec 23 10:00 .
+.br
+.B drwxr-xr-x 16 user user 4096 Dec 23 09:59 ..
+.br
+.B -rw-r--r--  1 user user   23 Dec 23 10:00 file1.txt
+.br
+.B -rw-r--r--  1 user user   29 Dec 23 10:00 file2.txt
+
+.SH USAGE
+
+.B Compile the provided source code using a C compiler and run the executable ./hsh.
+.br
+.B Once launched, the shell awaits user input and displays a prompt (\fI$ \fR). 
+.br
+.B Enter commands and press Enter to execute them.
+
+.SH EXAMPLES
+To list files:
+.PP
+.B ./hsh 
+.br
+.B $ ls
+.br 
+.B file1.txt file2.txt
+
+To print environment variables:
+.PP
+.B ./hsh 
+.br
+.B $ env
+.br
+.B PATH=/usr/bin:/bin:/usr/sbin:/sbin
+...
+
+.SH ENVIRONMENT VARIABLES
+.B ./hsh
+uses the following environment variables:
+
+.TP
+.B PATH
+Specifies directories for command execution.
+
+.SH NOTES
+The shell program does not support advanced features such as input/output redirection or piping.
+
+.SH SEE ALSO
+.BR execve (2),
+.BR fork (2),
+.BR wait (2),
+.BR access (2).
+
+.SH BUGS
+None known.
+
+.SH COPYRIGHT
+This is free and unencumbered software released into the public domain.
+
+.SH VERSION
+hsh version 1.0 (December 2023).
+
+.SH REPORTING BUGS
+Report bugs to: julie.dedieu1@gmail.com or 7448@holbertonstudents.com
+
+.SH SEE ALSO
+.BR bash (1),
+.BR sh (1),
+.BR gcc (1).
+
+.SH AUTHOR
+Julie Dedieu & Wilfried Leroulier
