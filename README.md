@@ -183,7 +183,9 @@ julien@ubuntu:~/shell$
 
 ## Man page
 
+```
 Run man ./man_1_simple_shell
+```
 
 ## Installation
 
@@ -228,5 +230,5 @@ Many warm thanks to all the Holberton School peers who helped and brought joy th
 
 ## Authors
 
-Julie Dedieu <julie.dedieu1@gmail.com
+Julie Dedieu julie.dedieu1@gmail.com
 Wilfried Leroulier <7448@holbertonstudents.com>
