@@ -182,9 +182,7 @@ julien@ubuntu:~/shell$
 ```
 ## Flowchart
 
-<img
-  src="https://app.code2flow.com/p1zjIWXMH27p.png"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+![Flowchart image for our Simple shell program](https://app.code2flow.com/p1zjIWXMH27p.svg)
 
 ## Man page
 
