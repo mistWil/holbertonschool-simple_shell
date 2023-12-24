@@ -197,18 +197,22 @@ Run man ./man_1_simple_shell
 To install and run Simple Shell, follow these steps:
 
 Clone the repository using the following command:
+
 `
 git clone https://github.com/mistWil/holbertonschool-simple_shell.git
 `
 
+
 Navigate to the directory where the repository was cloned.
 
 Compile the program by running the following command:
+
 `
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o .hsh
 `
 
 Run the program by typing the following command:
+
 `
 ./hsh
 `
