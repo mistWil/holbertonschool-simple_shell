@@ -180,6 +180,11 @@ DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$
 ```
+## Flowchart
+
+<img
+  src="https://app.code2flow.com/p1zjIWXMH27p.png"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 ## Man page
 
