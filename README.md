@@ -182,7 +182,7 @@ julien@ubuntu:~/shell$
 ```
 ## Flowchart
 
-![Flowchart image for our Simple shell program](https://app.code2flow.com/p1zjIWXMH27p.svg)
+![Flowchart image for our Simple shell program](https://github.com/mistWil/holbertonschool-simple_shell/blob/master/C%20-%20Simple%20shell%20flowchart.png)
 
 ## Man page
 
