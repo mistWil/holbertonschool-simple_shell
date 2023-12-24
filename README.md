@@ -180,6 +180,9 @@ DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$
 ```
+## Flowchart
+
+![Flowchart image for our Simple shell program](https://app.code2flow.com/p1zjIWXMH27p.svg)
 
 ## Man page
 
